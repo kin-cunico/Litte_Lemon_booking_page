@@ -8,6 +8,8 @@ import reserveSectionImg from "public/images/restauranfood.jpg";
 import mozzarella from "public/images/12mozzarellafrescaverano.webp";
 import carbonara from "public/images/msl-food-entertaining-whats-for-dinner-noodles-cavatappi-md110135_horiz-25a701ac8fe240218fab3b564118e673.jpg";
 import lemonCake from "public/images/lemon dessert.jpg";
+import userImage from "public/images/Mario and Adrian A.jpg";
+import userImage2 from "public/images/Mario and Adrian b.jpg";
 
 export default function Home() {
 	return (
@@ -70,7 +72,7 @@ export default function Home() {
 					>
 						<header className="header_hero">
 							<h1>Little Lemon</h1>
-							<p>London</p>
+							<h2>London</h2>
 							<p>
 								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
 								commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -129,7 +131,7 @@ export default function Home() {
 									className="dishImage"
 								></Image>
 								<h4 role="dish name">
-									Mozzarella fresca <span>£ 9.20</span>
+									Fusilli carbonara <span>£ 9.20</span>
 								</h4>
 								<p>
 									Lorem ipsum dolor sit amet, consectetuer adipiscing elit.{" "}
@@ -143,21 +145,63 @@ export default function Home() {
 									className="dishImage"
 								></Image>
 								<h4 role="dish name">
-									Mozzarella fresca <span>£ 9.20</span>
+									Lemoncake <span>£ 9.20</span>
 								</h4>
 								<p>
 									Lorem ipsum dolor sit amet, consectetuer adipiscing elit.{" "}
 								</p>
 								<a href="/order">order online</a>
 							</div>
-							<div></div>
-							<div></div>
 						</section>
 					</section>
 					<section
-						className="testimonials"
+						className="testimonials_container"
 						role="testimonials section"
-					></section>
+					>
+						<h4>What our customers think about us:</h4>
+						<section className="testimonials">
+							<div className="testimonial">
+								<div className="testimonial_image">
+									<Image
+										src={userImage}
+										alt="user image"
+										className="userImage"
+									></Image>
+									<h4>Hector Casa</h4>
+								</div>
+								<icon
+									src="public/images/icons8-star-50.png"
+									className="stars"
+								>
+									☆☆☆☆☆
+								</icon>
+								<p>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+									Aenean commodo ligula eget dolor. Aenean massa.
+								</p>
+							</div>
+							<div className="testimonial">
+								<div className="testimonial_image">
+									<Image
+										src={userImage2}
+										alt="user image"
+										className="userImage"
+									/>
+									<h4>Hector Casa</h4>
+								</div>
+								<icon
+									src="public/images/icons8-star-50.png"
+									className="stars"
+								>
+									☆☆☆☆☆
+								</icon>
+								<p>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+									Aenean commodo ligula eget dolor. Aenean massa.
+								</p>
+							</div>
+						</section>
+					</section>
 					<section
 						className="aboutUs"
 						id="about"
