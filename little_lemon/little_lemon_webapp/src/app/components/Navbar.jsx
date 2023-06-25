@@ -1,11 +1,12 @@
 import { Button } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "public/images/Logo.svg";
 
 export default function Navbar() {
 	return (
 		<nav className="navbar">
-			<a
+			<Link
 				href="/"
 				role="logo-link to home page"
 			>
@@ -14,32 +15,38 @@ export default function Navbar() {
 					alt="logo"
 					className="logo"
 				></Image>
-			</a>
+			</Link>
 
 			<ul className="nav_list">
 				<li
-					className="link"
+					className="link home"
 					role="link to home"
 				>
-					<a href="/">HOME</a>
+					<Link href="/">HOME</Link>
 				</li>
 				<li
 					role="link to about section"
-					className="link"
+					className="link about"
 				>
-					<a href="#about">ABOUT</a>
+					<Link href="#about">ABOUT</Link>
 				</li>
 				<li
-					className="link"
+					className="link menu"
 					role="link to menu page"
 				>
-					<a href="/menu">MENU</a>
+					<Link
+						href="/pages/MenuPage"
+						target="_blank"
+					>
+						MENU
+					</Link>
 				</li>
 				<li
-					className="link"
+					className="link order"
 					role="link to order online page"
+					passHref
 				>
-					<a href="/order">ORDER ONLINE</a>
+					<Link href="/pages/Order">ORDER ONLINE</Link>
 				</li>
 				<li role="button to login">
 					<Button

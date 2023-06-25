@@ -1,10 +1,14 @@
 import { Button } from "@chakra-ui/react";
 import Image from "next/image";
-
+import Link from "next/link";
+import { useState } from "react";
+//////////////////////////////////////////////////////////
 import reserveSectionImg from "public/images/restauranfood.jpg";
 import mozzarella from "public/images/12mozzarellafrescaverano.webp";
 import carbonara from "public/images/msl-food-entertaining-whats-for-dinner-noodles-cavatappi-md110135_horiz-25a701ac8fe240218fab3b564118e673.jpg";
 import lemonCake from "public/images/lemon dessert.jpg";
+/////////////////////////////////////////////////////////
+
 export default function MainHero() {
 	return (
 		<main
@@ -17,19 +21,25 @@ export default function MainHero() {
 			>
 				<article className="header_hero">
 					<h1>Little Lemon</h1>
-					<h2>London</h2>
+					<p>London</p>
 					<p>
 						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
 						commodo ligula eget dolor. Aenean massa. Cum sociis natoque
 						penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 					</p>
-					<Button
-						colorScheme="yellow"
-						variant="solid"
-						className="HeroButton"
+					<Link
+						href="/pages/TableBooking"
+						target="_blank"
+						className="link_button"
 					>
-						Reserve a Table
-					</Button>
+						<Button
+							colorScheme="yellow"
+							variant="solid"
+							className="HeroButton"
+						>
+							Reserve a Table
+						</Button>
+					</Link>
 				</article>
 
 				<Image
@@ -45,13 +55,19 @@ export default function MainHero() {
 			>
 				<div className="specials_menu">
 					<h4>Specials</h4>
-					<Button
-						colorScheme="yellow"
-						variant="solid"
-						role="button to access the menu page"
+					<Link
+						href="/pages/MenuPage"
+						target="_blank"
+						className="link_button"
 					>
-						Menu à la carte
-					</Button>
+						<Button
+							colorScheme="yellow"
+							variant="solid"
+							role="button to access the menu page"
+						>
+							Menu à la carte
+						</Button>
+					</Link>
 				</div>
 				<section className="dishCardSection">
 					<div className="dishCard">

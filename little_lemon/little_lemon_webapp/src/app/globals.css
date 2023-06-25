@@ -1,13 +1,13 @@
 :root {
-	--font-mono: "Karla", "Markazi Text" monospace;
+	--font-mono: "Karla", "Markazi Text", monospace;
 }
 .main {
 	max-height: 2900px;
 	max-width: 100%;
 }
-
 .navbar {
 	width: 100%;
+	min-width: 428px;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -15,6 +15,7 @@
 	background: white;
 	border-bottom: solid 1px black;
 	font-family: "Karla", "Markazi Text", Arial;
+	position: fixed;
 }
 
 .nav_list {
@@ -28,6 +29,19 @@
 	color: #495e57;
 	font-weight: bold;
 	font-size: 1.2rem;
+}
+
+.home > a:visited {
+	color: rgb(0, 0, 0);
+}
+.about > a:visited {
+	color: rgb(0, 0, 0);
+}
+.menu > a:visited {
+	color: black;
+}
+.order > a:visited {
+	color: black;
 }
 
 .link:hover {
@@ -46,7 +60,7 @@
 	box-sizing: content-box;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	padding-top: 38px;
+	padding-top: 140px;
 	padding-bottom: 10px;
 	width: 100%;
 	background: #495e57;
@@ -232,8 +246,7 @@
 	align-items: center;
 	justify-content: space-around;
 	gap: 20px;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding: 40px 30px 40px 30px;
 	width: 100%;
 	height: 50vh;
 	color: rgb(0, 0, 0);
@@ -246,8 +259,8 @@
 	justify-content: space-around;
 	flex-direction: column;
 	flex-wrap: wrap;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 .left_about {
 	text-align: justify;
@@ -275,7 +288,7 @@
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-around;
-	padding: 38px 20px 20px 38px;
+	padding: 38px 5px 38px 5px;
 	gap: 144px;
 	background: #ee9972;
 }
@@ -294,4 +307,10 @@
 	align-items: center;
 	padding-bottom: 20px;
 	gap: 17px;
+}
+
+.reserveForm {
+	position: absolute;
+	width: 500px;
+	height: 700px;
 }
