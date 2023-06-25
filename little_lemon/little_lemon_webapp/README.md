@@ -15,6 +15,7 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ##Little Lemon London##
+
 This project is the final project for the Meta Front-end Developer course on Coursera, offered by Meta. The project aims at creating a website using foundational skills from HTML5, CSS3, React, GitHub, and Git Bash. 
 <br/>
 In this course, we were encouraged to use relevant meta tags for SEO, as well as OGP meta tags for shareable content. 
