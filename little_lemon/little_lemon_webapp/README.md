@@ -14,7 +14,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-##Little Lemon London##
+##Little Lemon London
 
 This project is the final project for the Meta Front-end Developer course on Coursera, offered by Meta. The project aims at creating a website using foundational skills from HTML5, CSS3, React, GitHub, and Git Bash. 
 <br/>
@@ -27,5 +27,5 @@ It was also adamant to use Flexbox or Grid to style our components.
 Lastly, the whole project creation, and updates, were done via Git Bash to Github.
 
 
-##Please note##
+##Please note
 In my case, I rerouted the pages using Next.js rather than Routes. Considering this, I also used Image from "image/next" to render images rather than the <img/> tag. 
