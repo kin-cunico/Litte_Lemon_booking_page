@@ -33,6 +33,7 @@
 	background: #495e57;
 	border-radius: 8px;
 	color: white;
+	gap: 5px;
 }
 
 #date {
@@ -42,4 +43,19 @@
 	align-items: center;
 	justify-content: center;
 	background: #495e57;
+}
+
+.input:focus {
+	background: #495e57;
+	color: white;
+}
+
+.fillForm sup {
+	color: red;
+}
+
+.error {
+	color: red;
+	font-size: 0.8rem;
+	font-weight: bold;
 }
