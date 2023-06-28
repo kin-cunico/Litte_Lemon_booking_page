@@ -64,7 +64,7 @@
 	border: 1px solid red;
 }
 
-.booked {
+.confirmBooking {
 	display: flex;
 	align-items: center;
 	justify-content: center;

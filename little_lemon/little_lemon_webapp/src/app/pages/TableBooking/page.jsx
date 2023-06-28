@@ -6,16 +6,15 @@ import { useState, useEffect, useReducer } from "react";
 import Header from "@/app/components/Header.jsx";
 import Script from "next/script";
 import InitializeTimes from "@/app/components/InizializeTimes";
-import updateData from "@/app/components/updateData";
+import PopUp from "@/app/components/PopUp";
 
 /////////////////////////////////////////////////////////////////
 export default function TableBooking() {
 	////// TODO dateUnavailable picked
 
 	///// date and time state
-	const [value, setValue] = useState(new Date().toISOString().split("T")[0]);
+	const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 	const [time, setTime] = useState("");
-	console.log(time);
 
 	/////////////////////////////////////////////////////////////////// controlled states
 
@@ -48,8 +47,7 @@ export default function TableBooking() {
 			setWhere("") &&
 			setGuests("") &&
 			setOccasion("") &&
-			setComment("") &&
-			updateData(formData);
+			setComment("");
 	};
 
 	///////////////////////////////////////////////////////////////////////// handleBlur
@@ -101,7 +99,7 @@ export default function TableBooking() {
 	};
 	const handleDate = (e) => {
 		e.preventDefault();
-		if (!value) {
+		if (!date) {
 			setErrorDate(<p className={styles.error}>Please pick a date.</p>);
 		} else {
 			setErrorDate("");
@@ -128,7 +126,8 @@ export default function TableBooking() {
 	}, []);
 
 	/// formData
-	const formData = [
+	const [formData, setFormData] = useState([]);
+	let formRes = [
 		{
 			name: { name },
 		},
@@ -139,7 +138,7 @@ export default function TableBooking() {
 			email: { email },
 		},
 		{
-			value: { value },
+			date: { date },
 		},
 		{
 			time: { time },
@@ -157,17 +156,45 @@ export default function TableBooking() {
 			comment: { comment },
 		},
 	];
-	console.log(formData);
 
+	const handleForm = () => {
+		setFormData(formRes);
+		const keysData = formData.map((item) => {
+			const key = Object.keys(item)[0];
+			const userValue = item[key];
+			console.log(key, userValue);
+			return (
+				<ul>
+					<li>{`${key}: ${userValue}`}</li>
+				</ul>
+			);
+		});
+	};
+	/// POPUP HANDLERS
+	const [buttonPopUp, setButtonPopUp] = useState(false);
+
+	const [disableButton, setDisableButton] = useState(
+		name === "",
+		telephone === "",
+		!email,
+		!date,
+		time === "1",
+		guests === "Select"
+	);
+
+	////////////////////////////////////////////////////
 	return (
 		<ChakraProvider>
-			<main className={styles.main}>
+			<main
+				className={styles.main}
+				trigger={true}
+				id="main"
+			>
 				<Header />
 				<h1>Reserve your table:</h1>
 				<form
 					className={styles.form}
 					onSubmit={handleSubmit}
-					updateData={updateData}
 				>
 					<label
 						htmlFor="name"
@@ -233,8 +260,8 @@ export default function TableBooking() {
 						data-testid="date"
 						type="date"
 						id="date"
-						value={value}
-						onChange={(e) => setValue(e.target.value)}
+						value={date}
+						onChange={(e) => setDate(e.target.value)}
 						required
 						onBlur={handleDate}
 					></input>
@@ -310,19 +337,35 @@ export default function TableBooking() {
 						data-testid="btn"
 						colorScheme="green"
 						variant="outline"
-						type="submit"
-						disabled={
-							!name ||
-							!telephone ||
-							!email ||
-							!value ||
-							time === "1" ||
-							guests === "Select"
-						}
+						type="button"
+						disabled={disableButton}
+						onClick={() => setButtonPopUp(true)}
 					>
 						Confirm
 					</Button>
 				</form>
+				<PopUp trigger={buttonPopUp}>
+					<ul>
+						<li className={styles.error}>Testing POPUP</li>
+						<li>{handleForm}</li>
+						<li className={styles.error}>item 2</li>
+						<Button
+							colorScheme="orange"
+							variant="outline"
+							onClick={() => setButtonPopUp(false)}
+						>
+							Back
+						</Button>
+						<Button
+							type="submit"
+							colorScheme="green"
+							variant="outline"
+							onClick={() => setButtonPopUp(false) && handleSubmit}
+						>
+							Confirm
+						</Button>
+					</ul>
+				</PopUp>
 			</main>
 			<Script src="https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js" />
 		</ChakraProvider>
