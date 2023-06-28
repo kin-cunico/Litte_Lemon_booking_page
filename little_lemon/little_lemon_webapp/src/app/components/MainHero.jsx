@@ -35,6 +35,7 @@ export default function MainHero() {
 						<Button
 							colorScheme="yellow"
 							variant="solid"
+							data-test-id="btn"
 							className="HeroButton"
 						>
 							Reserve a Table

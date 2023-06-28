@@ -1,30 +1,21 @@
 "use client";
 
-import "react-datetime-picker/dist/DateTimePicker.css";
-import "react-calendar/dist/Calendar.css";
-import "react-clock/dist/Clock.css";
-
 import { Button, ChakraProvider } from "@chakra-ui/react";
 import styles from "../../styles/TableBooking.module.css";
 import { useState, useEffect, useReducer } from "react";
-import Header from "@/app/components/Header";
-
-// mock server side
+import Header from "@/app/components/Header.jsx";
+import Script from "next/script";
+import InitializeTimes from "@/app/components/InizializeTimes";
+import updateData from "@/app/components/updateData";
 
 /////////////////////////////////////////////////////////////////
 export default function TableBooking() {
 	////// TODO dateUnavailable picked
 
-	const datePicked = () => {
-		if (value in unavailableDates && time in unavailableDates) {
-			console.log("Sorry, this date is unavailable.");
-		}
-	};
-
 	///// date and time state
-	const [value, setValue] = useState(new Date());
-	console.log(value);
+	const [value, setValue] = useState(new Date().toISOString().split("T")[0]);
 	const [time, setTime] = useState("");
+	console.log(time);
 
 	/////////////////////////////////////////////////////////////////// controlled states
 
@@ -47,22 +38,6 @@ export default function TableBooking() {
 
 	const [comment, setComment] = useState("");
 
-	//// TODO create array of selected dates
-	let selDates = [
-		{
-			date: "",
-			time: "",
-		},
-	];
-	let unavailableDates = [...selDates];
-
-	function pushToArray(a, b) {
-		selDates.push({
-			date: { a },
-			time: { b },
-		});
-	}
-
 	//////////////////////////////////////////////////////////////////// handle submit
 
 	const handleSubmit = (e) => {
@@ -73,14 +48,8 @@ export default function TableBooking() {
 			setWhere("") &&
 			setGuests("") &&
 			setOccasion("") &&
-			setComment("");
-
-		/// selected dates arrayPush
-		pushToArray(value, time);
-		let unavailableDates = [...selDates];
-		console.log(unavailableDates);
-
-		alert("Table Booked");
+			setComment("") &&
+			updateData(formData);
 	};
 
 	///////////////////////////////////////////////////////////////////////// handleBlur
@@ -102,7 +71,6 @@ export default function TableBooking() {
 	const [errorMessage, setErrorMessage] = useState("");
 	const [phoneError, setPhoneError] = useState("");
 	const [errorDate, setErrorDate] = useState("");
-	const [errorTime, setErrorTime] = useState("");
 	const [errorGuests, setErrorGuests] = useState("");
 	//
 	const handleBlur = (e) => {
@@ -131,9 +99,6 @@ export default function TableBooking() {
 			setPhoneError("");
 		}
 	};
-
-	//////////////////////////// handle error date NOT WORKING
-
 	const handleDate = (e) => {
 		e.preventDefault();
 		if (!value) {
@@ -142,18 +107,6 @@ export default function TableBooking() {
 			setErrorDate("");
 		}
 	};
-
-	////////////////////////////////////////////////////////////////
-
-	const handleTime = (e) => {
-		e.preventDefault();
-		if (time === "1") {
-			setErrorTime(<p className={styles.error}>Please select a time.</p>);
-		} else {
-			setErrorTime("");
-		}
-	};
-
 	///
 	const handleGuests = (e) => {
 		e.preventDefault();
@@ -174,6 +127,38 @@ export default function TableBooking() {
 		}
 	}, []);
 
+	/// formData
+	const formData = [
+		{
+			name: { name },
+		},
+		{
+			telephone: { telephone },
+		},
+		{
+			email: { email },
+		},
+		{
+			value: { value },
+		},
+		{
+			time: { time },
+		},
+		{
+			where: { where },
+		},
+		{
+			guests: { guests },
+		},
+		{
+			occasion: { occasion },
+		},
+		{
+			comment: { comment },
+		},
+	];
+	console.log(formData);
+
 	return (
 		<ChakraProvider>
 			<main className={styles.main}>
@@ -182,6 +167,7 @@ export default function TableBooking() {
 				<form
 					className={styles.form}
 					onSubmit={handleSubmit}
+					updateData={updateData}
 				>
 					<label
 						htmlFor="name"
@@ -190,6 +176,7 @@ export default function TableBooking() {
 						<sup>* </sup>Name:
 					</label>
 					<input
+						data-testid="name"
 						placeholder="Full name"
 						id="name"
 						type="text"
@@ -207,6 +194,7 @@ export default function TableBooking() {
 						<sup>* </sup>Telephone:
 					</label>
 					<input
+						data-testid="telephone"
 						placeholder="+44"
 						id="telephone"
 						type="number"
@@ -224,6 +212,7 @@ export default function TableBooking() {
 						<sup>* </sup>Email:
 					</label>
 					<input
+						data-testid="email"
 						placeholder="your email"
 						id="email"
 						required
@@ -241,6 +230,7 @@ export default function TableBooking() {
 						<sup>* </sup>Select the date and time:
 					</label>
 					<input
+						data-testid="date"
 						type="date"
 						id="date"
 						value={value}
@@ -249,24 +239,7 @@ export default function TableBooking() {
 						onBlur={handleDate}
 					></input>
 					{errorDate}
-					<select
-						className={styles.select}
-						required
-						onChange={(e) => setTime(e.target.value)}
-						onBlur={handleTime}
-					>
-						<option value="1">Select</option>
-						<option value="2">10:00</option>
-						<option value="3">11:00</option>
-						<option value="4">12:00</option>
-						<option value="5">13:00</option>
-
-						<option value="6">18:00</option>
-						<option value="7">19:00</option>
-						<option value="8">20:00</option>
-						<option value="9">21:00</option>
-					</select>
-					{errorTime}
+					<InitializeTimes />
 					<label
 						htmlFor="select"
 						className={styles.fillForm}
@@ -334,6 +307,7 @@ export default function TableBooking() {
 						placeholder="Tell us if you have any special requirements"
 					></textarea>
 					<Button
+						data-testid="btn"
 						colorScheme="green"
 						variant="outline"
 						type="submit"
@@ -342,7 +316,7 @@ export default function TableBooking() {
 							!telephone ||
 							!email ||
 							!value ||
-							!time ||
+							time === "1" ||
 							guests === "Select"
 						}
 					>
@@ -350,6 +324,7 @@ export default function TableBooking() {
 					</Button>
 				</form>
 			</main>
+			<Script src="https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js" />
 		</ChakraProvider>
 	);
 }

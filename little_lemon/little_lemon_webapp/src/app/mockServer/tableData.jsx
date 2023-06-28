@@ -1,26 +1,28 @@
-let tables = [
-	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-];
+const seededRandom = function (seed) {
+	var m = 2 ** 35 - 31;
+	var a = 185852;
+	var s = seed % m;
+	return function () {
+		return (s = (s * a) % m) / m;
+	};
+};
 
-const [
-	t1,
-	t2,
-	t3,
-	t4,
-	t5,
-	t6,
-	t7,
-	t8,
-	t9,
-	t10,
-	t11,
-	t12,
-	t13,
-	t14,
-	t15,
-	t16,
-	t17,
-	t18,
-	t19,
-	t20,
-] = tables;
+const fetchAPI = function (date) {
+	let result = [];
+	let random = seededRandom(date.getDate());
+
+	for (let i = 17; i <= 23; i++) {
+		if (random() < 0.5) {
+			result.push(i + ":00");
+		}
+		if (random() < 0.5) {
+			result.push(i + ":30");
+		}
+	}
+	return result;
+};
+const submitAPI = function (formData) {
+	return true;
+};
+
+export { fetchAPI, submitAPI };
