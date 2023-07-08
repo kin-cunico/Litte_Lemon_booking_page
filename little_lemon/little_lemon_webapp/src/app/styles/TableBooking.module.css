@@ -1,75 +1,71 @@
 .main {
 	display: flex;
-	flex-direction: column;
+	box-sizing: content-box;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100vh;
 	color: #495e57;
-	padding: 40px;
+	background: aliceblue;
+	font-weight: bold;
+	font-family: "Karla", sans-serif;
 }
 
-.main > h1 {
-	font-size: 1.5rem;
-	font-weight: bold;
+.main sup {
+	color: red;
 }
 
 .form {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	height: 100%;
-	gap: 38px;
-	width: 500px;
-	background: whitesmoke;
-	border-radius: 8px;
-	padding: 20px 10px 20px 10px;
+	justify-content: space-around;
+	width: 600px;
+	background: white;
+	height: 100vh;
+	flex-direction: column;
 }
 
-.fillForm {
+.inputBox {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 450px;
-	background: #495e57;
-	border-radius: 8px;
-	color: white;
+	flex-direction: column;
 	gap: 5px;
-}
-
-#date {
-	width: 400px;
-	height: 500px;
-	position: relative;
-	align-items: center;
-	justify-content: center;
-	background: #495e57;
-}
-
-.input:focus {
-	background: #495e57;
-	color: white;
-}
-
-.fillForm sup {
-	color: red;
+	width: 360px;
 }
 
 .error {
 	color: red;
-	font-size: 0.8rem;
 	font-weight: bold;
+	font-size: 0.9rem;
 }
 
-.timeInput {
-	border: 1px solid red;
+.formButton {
+	color: white;
+	background: rgb(58, 137, 255);
+	border: 1px solid white;
+	padding: 10px 30px;
+	border-radius: 8px;
 }
 
-.confirmBooking {
+.formButton:hover {
+	transition: 2s;
+	cursor: pointer;
+	background: rgb(39, 95, 178);
+}
+
+.formButton:disabled {
+	cursor: not-allowed;
+}
+
+.popUp {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: absolute;
-	width: 400px;
-	height: 600px;
-	background: #495e57;
+	border: 2px solid red;
+}
+
+.popUph2 {
+	color: red;
 }

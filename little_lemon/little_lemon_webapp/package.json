@@ -11,20 +11,25 @@
 		"coverage": "jest --coverage"
 	},
 	"dependencies": {
+		"@babel/helper-create-class-features-plugin": "^7.22.6",
 		"@chakra-ui/next-js": "^2.1.4",
 		"@chakra-ui/react": "^2.7.1",
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
 		"eslint": "8.43.0",
 		"eslint-config-next": "13.4.7",
+		"formik": "^2.4.2",
 		"framer-motion": "^10.12.16",
 		"next": "13.4.7",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"react-time-picker": "^6.2.0"
+		"react-modal": "^3.16.1",
+		"react-time-picker": "^6.2.0",
+		"yup": "^1.2.0"
 	},
 	"devDependencies": {
-		"@babel/preset-env": "^7.22.5",
+		"@babel/core": "^7.22.8",
+		"@babel/preset-env": "^7.22.7",
 		"@babel/preset-flow": "^7.22.5",
 		"@babel/preset-react": "^7.22.5",
 		"@testing-library/react": "^14.0.0",

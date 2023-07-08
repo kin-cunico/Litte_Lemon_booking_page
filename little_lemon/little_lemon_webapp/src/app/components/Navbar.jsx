@@ -35,7 +35,7 @@ export default function Navbar() {
 					role="link to menu page"
 				>
 					<Link
-						href="/pages/MenuPage"
+						href="/"
 						target="_blank"
 					>
 						MENU
@@ -46,7 +46,7 @@ export default function Navbar() {
 					role="link to order online page"
 					passHref
 				>
-					<Link href="/pages/Order">ORDER ONLINE</Link>
+					<Link href="/">ORDER ONLINE</Link>
 				</li>
 				<li role="button to login">
 					<Button

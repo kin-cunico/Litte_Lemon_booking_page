@@ -1,9 +1,38 @@
-import styles from "../styles/TableBooking.module.css";
+import "src/app/styles/popup.css";
+import React from "react";
+import Modal from "react-modal";
+import Header from "./Header";
 
-export default function PopUp(props) {
-	return props.trigger ? (
-		<div className={styles.confirmBooking}>{props.children}</div>
-	) : (
-		""
+const Popup = ({ isOpen, onClose }) => {
+	const handleClosePopup = () => {
+		window.close();
+	};
+	return (
+		<form className="popup">
+			<Header />
+			<Modal
+				isOpen={isOpen}
+				onRequestClose={onClose}
+				ariaHideApp={false}
+				className="popup"
+			>
+				<h2>Confirmation</h2>
+				<p>You will receive an email with all the detais of your booking.</p>
+				<p>
+					If you need to cancel your booking, you can cancel via email or
+					telephone at: XXXXXXXXXXX
+				</p>
+
+				<button
+					onClick={handleClosePopup}
+					type="submit"
+					className="popupClose"
+				>
+					Close
+				</button>
+			</Modal>
+		</form>
 	);
-}
+};
+
+export default Popup;

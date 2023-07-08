@@ -3,7 +3,7 @@ import { fetchAPI, submitAPI } from "../mockServer/tableData";
 
 import styles from "../styles/TableBooking.module.css";
 
-export default function InitializeTimes() {
+export default function TimePicker() {
 	const [availabletimes, setAvailabletimes] = useState([]);
 	const fetchData = (availabletimes) => {
 		const res = fetchAPI(new Date());
@@ -14,18 +14,25 @@ export default function InitializeTimes() {
 	useEffect(() => {
 		fetchData();
 	}, []);
-
+	const [time, setTime] = useState("1");
 	const listTimes = availabletimes.map((availableTime) => {
 		const avTime = `${availableTime}`;
-		return <option>{avTime}</option>;
+
+		return (
+			<option
+				value={avTime}
+				key={avTime}
+			>
+				{avTime}
+			</option>
+		);
 	});
 
 	const [errorTime, setErrorTime] = useState("");
-	const [time, setTime] = useState("1");
 
 	const handleTime = (e) => {
-		e.preventDefault();
 		console.log(time);
+		e.preventDefault();
 		if (time === "1") {
 			setErrorTime(<p className={styles.error}>Please select a time.</p>);
 		} else {
@@ -43,8 +50,8 @@ export default function InitializeTimes() {
 						required
 					>
 						<option
-							selected
-							value="1"
+							defaultValue={"1"}
+							key={1}
 						>
 							Select:
 						</option>
