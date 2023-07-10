@@ -16,13 +16,13 @@ const Popup = ({ isOpen, onClose }) => {
 				ariaHideApp={false}
 				className="popup"
 			>
-				<h2>Confirmation</h2>
+				<h2 aria-label="confirmation">Confirmation</h2>
 				<p>You will receive an email with all the detais of your booking.</p>
 				<p>
 					If you need to cancel your booking, you can cancel via email or
 					telephone at: XXXXXXXXXXX
 				</p>
-
+				<p>This window will close automatically</p>
 				<button
 					onClick={handleClosePopup}
 					type="submit"

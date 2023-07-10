@@ -7,7 +7,7 @@ export default function LowerSection() {
 	return (
 		<main
 			className="testimonials_container"
-			role="testimonials section"
+			aria-label="testimonials"
 		>
 			<h4>What our customers think about us:</h4>
 			<section className="testimonials">
@@ -20,12 +20,7 @@ export default function LowerSection() {
 						></Image>
 						<h4>Hector Casa</h4>
 					</div>
-					<icon
-						src="public/images/icons8-star-50.png"
-						className="stars"
-					>
-						☆☆☆☆☆
-					</icon>
+					<icon className="stars">☆☆☆☆☆</icon>
 					<p>
 						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
 						commodo ligula eget dolor. Aenean massa.
@@ -40,12 +35,7 @@ export default function LowerSection() {
 						/>
 						<h4>Hector Casa</h4>
 					</div>
-					<icon
-						src="public/images/icons8-star-50.png"
-						className="stars"
-					>
-						☆☆☆☆☆
-					</icon>
+					<icon className="stars">☆☆☆☆☆</icon>
 					<p>
 						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
 						commodo ligula eget dolor. Aenean massa.
@@ -55,6 +45,7 @@ export default function LowerSection() {
 			<section
 				className="aboutUsSection"
 				id="about"
+				aria-description="about us section"
 			>
 				<div className="left_about">
 					<h2>Little Lemon</h2>
@@ -70,14 +61,14 @@ export default function LowerSection() {
 						src={userImage}
 						alt="Adrian Image"
 					/>
-					<p>Adrian</p>
+					<p>Mario and Adrian</p>
 				</div>
 				<div className="imageAbout">
 					<Image
 						src={userImage2}
 						alt="Mario Image"
 					/>
-					<p>Adrian</p>
+					<p>Adrian and Mario</p>
 				</div>
 			</section>
 		</main>

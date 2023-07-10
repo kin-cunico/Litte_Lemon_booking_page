@@ -48,6 +48,8 @@ export default function TimePicker() {
 						onBlur={handleTime}
 						onChange={(e) => setTime(e.target.value)}
 						required
+						aria-valuenow={time}
+						aria-label="select a time dropdown"
 					>
 						<option
 							defaultValue={"1"}

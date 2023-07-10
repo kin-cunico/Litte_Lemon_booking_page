@@ -13,11 +13,11 @@ export default function MainHero() {
 	return (
 		<main
 			className="container"
-			role="container for reserve a table section and specials-menu section"
+			aria-description="container for reserve a table section and specials-menu section"
 		>
 			<section
 				className="hero_section"
-				role="reserve a table section"
+				aria-label="reserve a table section"
 			>
 				<article className="header_hero">
 					<h1>Little Lemon</h1>
@@ -37,6 +37,7 @@ export default function MainHero() {
 							variant="solid"
 							data-test-id="btn"
 							className="HeroButton"
+							position="static"
 						>
 							Reserve a Table
 						</Button>
@@ -46,7 +47,6 @@ export default function MainHero() {
 				<Image
 					src={reserveSectionImg}
 					alt="reserve a table image"
-					role="reserve a table image"
 					className="hero_image"
 				></Image>
 			</section>
@@ -65,6 +65,7 @@ export default function MainHero() {
 							colorScheme="yellow"
 							variant="solid"
 							role="button to access the menu page"
+							position="static"
 						>
 							Menu à la carte
 						</Button>

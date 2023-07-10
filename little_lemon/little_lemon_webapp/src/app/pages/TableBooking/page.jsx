@@ -85,11 +85,17 @@ const TableBooking = () => {
 				onSubmit={handleSubmit}
 			>
 				{() => (
-					<main className={styles.main}>
+					<main
+						className={styles.main}
+						aria-label="book a table page"
+					>
 						<h2>Book your table at Little Lemon London:</h2>
 						<Form className={styles.form}>
 							<div className={styles.inputBox}>
-								<label htmlFor="name">
+								<label
+									htmlFor="name"
+									aria-label="name"
+								>
 									<sup>*</sup>Name:
 								</label>
 								<Field
@@ -105,7 +111,10 @@ const TableBooking = () => {
 							</div>
 
 							<div className={styles.inputBox}>
-								<label htmlFor="email">
+								<label
+									htmlFor="email"
+									aria-label="email"
+								>
 									<sup>*</sup>Email:
 								</label>
 								<Field
@@ -121,7 +130,10 @@ const TableBooking = () => {
 							</div>
 
 							<div className={styles.inputBox}>
-								<label htmlFor="telephone">
+								<label
+									htmlFor="telephone"
+									aria-label="telephone"
+								>
 									<sup>*</sup>Telephone:
 								</label>
 								<Field
@@ -137,7 +149,10 @@ const TableBooking = () => {
 							</div>
 
 							<div className={styles.inputBox}>
-								<label htmlFor="date">
+								<label
+									htmlFor="date"
+									aria-label="date"
+								>
 									<sup>*</sup>Date:
 								</label>
 								<Field
@@ -161,7 +176,12 @@ const TableBooking = () => {
 							</div>
 
 							<div className={styles.inputBox}>
-								<label htmlFor="occasion">Occasion:</label>
+								<label
+									htmlFor="occasion"
+									aria-label="occasion"
+								>
+									Occasion:
+								</label>
 								<Field
 									as="select"
 									name="occasion"
@@ -181,7 +201,10 @@ const TableBooking = () => {
 							</div>
 
 							<div className={styles.inputBox}>
-								<label htmlFor="guests">
+								<label
+									htmlFor="guests"
+									aria-label="guests"
+								>
 									<sup>*</sup>Guests:
 								</label>
 								<Field
